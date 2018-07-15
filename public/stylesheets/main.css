@@ -146,6 +146,19 @@ p.comment-margin {
 	background: rgba(255, 255, 255, 0.7);
 }
 
+.card {
+	position: relative;
+	top: 60px;
+	min-height: 570px;
+	max-height: 570px;
+	max-width: 800px;
+	overflow: scroll;
+}
+
+.comment-body {
+	margin-bottom: 10px;
+}
+
 .show-overlay {
 	z-index: -1;
 	position: absolute;
@@ -235,7 +248,7 @@ p.comment-margin {
 }
 
 .container.show {
-	max-width: 800px;
+	max-width: 1000px;
 }
 
 .img-thumbnail img {

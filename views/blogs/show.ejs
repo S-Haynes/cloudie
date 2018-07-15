@@ -2,7 +2,12 @@
 <div class="add-header-margin-100"></div>
 <div class="show-bg"></div>
 <div class="show-overlay"></div>
+
 <div class="container show">
+	<div class="row">
+	<div class="col-md-6">
+		
+	
 	<div class="text-left">
 		<div class="text-left">
 			<h1><%= blog.title %></h1>
@@ -12,37 +17,45 @@
 			<div class="caption">
 				<p><%= blog.description %></p>
 				<p><strong>Submitted by <%= blog.author.username %></strong> - <%= moment(blog.created).fromNow() %></p>
-				<% if(currentUser && currentUser.username === 'Jen'){ %>
+				<% if(currentUser && currentUser.username === 'Cloudie'){ %>
 				<a class="btn btn-warning" href="/blogs/<%= blog._id %>/edit">Edit</a>	
 				<% } %>
 			</div>			
 		</div>		
 	</div>
+	</div>
+	<div class="col-md-6">
+		
+
 		<div class="card card-body bg-light">
+			<div class="comment-body">
+				
+		
 			<% if(currentUser){ %>
 			<div class="row">
-				<div class="col-sm-9">
-					<h1 class="float-left">Comments</h1>
+				<div class="col-md-9">
+					<h3 class="float-left">Comments</h3>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-md-3">
 					<div class="float-right">
-						<button id="addComment" class="btn btn-success">Add New Comment</button>
+						<button id="addComment" class="btn btn-success btn-sm">Add New Comment</button>
 					</div>	
 				</div>
 			</div>
 			<hr>	
 			<%} else { %>
 			<div class="row">
-				<div class="col-sm-6">
-					<h1>Comments</h1>
+				<div class="col-sm-12">
+					<h3>Comments</h3>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-sm-12">
 					<p class="float-right"><a href="/login">Login</a> to leave a comment...</p>
 				</div>
 			</div>	
 			<hr>
+				</div>
 			<% } %>
-			<form id="comment-form" class="hidden" action="/blogs/<%= blog._id %>/comments" method="POST">
+			<form class="comment-form hidden" action="/blogs/<%= blog._id %>/comments" method="POST">
 					<div class="form-group">
 						<label for="comment">
 							<% if(currentUser){%> 
@@ -60,20 +73,24 @@
 			</form>
 	
 			<% blog.comments.forEach(function(comment){ %>
+			<div class="comment-body">
+				
+			
 				<p class="comment-margin"><strong><%= comment.author.username %></strong></p>
 				<p class="comment-margin"><%= comment.text %> <span class="float-right"><%= moment(comment.created).fromNow() %></span></p>
 				<% if(currentUser && currentUser._id.equals(comment.author.id)){ %>
 				<div class="row">
-					<div class="col-sm-1 height">
-						<button id="showEditForm" class="btn btn-outline-warning btn-sm float-left">Edit</button> 
+					<div class="col-md-2 height">
+						<button class="showEditForm btn btn-outline-warning btn-sm float-left">Edit</button> 
 					</div>
-					<div class="col-sm-11 height">
+					<div class="col-md-10 height">
 						<form action="/blogs/<%= blog._id %>/comments/<%= comment.id %>?_method=DELETE" method="POST">
 							<button class="btn btn-outline-danger btn-sm float-left">Delete</button>
 						</form>	
 					</div>
 				</div>
-					<form class="hidden" id="editForm" action="/blogs/<%= blog._id %>/comments/<%= comment.id %>?_method=PUT" method="POST">
+				</div>
+					<form class="hidden editForm" action="/blogs/<%= blog._id %>/comments/<%= comment.id %>?_method=PUT" method="POST">
 						<div class="form-group">
 							<label for="editTextArea">Edit Your Comment:</label>
 							<textarea class="form-control" id="editTextArea" name="comment[text]"><%= comment.text %></textarea>
@@ -88,7 +105,10 @@
 				<% } %>
 				<br>
 			<% }) %>
-		</div>	
+		</div>
+	</div>
+
+	</div>	
 </div>
 
 
