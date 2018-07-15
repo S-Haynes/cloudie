@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jen & Cloud</title>
+  <link rel="icon" type="image/png" href="/img/rose.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav m-auto">
+    		<a class="nav-item nav-link mr-4" href="/">Home</a>
+    		<a class="nav-item nav-link mr-4" href="https://www.instagram.com/cloudie.bobie/">Instagram</a>
+      		<a class="nav-item nav-link mr-4" href="/blogs">Blogs</a>
+      		<% if(!currentUser){ %>
+      		<a class="nav-item nav-link" href="/login">Login</a>
+      		<% } else { %>
+      		<a class="nav-item nav-link" href="/logout">Logout</a>
+      		<% } %>
+      	
+    </div>
+  </div>
+</nav>
+
+    <div class="container">
+      <% if(error.length > 0){ %>
+        <div class="alert alert-danger">
+          <p><%= error %></p>
+        </div>
+      <% } else if(success.length > 0){ %>
+        <div class="alert alert-success">
+          <p><%= success %></p>
+        </div>
+    <% } %>
+    </div>
