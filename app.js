@@ -22,7 +22,7 @@ const indexRoutes 	 = require('./routes/index');
 	  commentRoutes  = require('./routes/comments');
 
 //connect to mongoose database
-mongoose.connect('mongodb://localhost:27017/jenandcloud', {useNewUrlParser: true});
+mongoose.connect('mongodb://<shaynes>:<cloudie123>@ds137651.mlab.com:37651/cloudie', {useNewUrlParser: true});
 
 // app config
 app.set('view engine', 'ejs');
