@@ -1,16 +1,19 @@
 <% include ../partials/header %>
+
 <div class="add-header-margin-100"></div>
+<div class="index-page-bg"></div>
+<div class="show-overlay index"></div>
 <div class="container">
 	<div class="text-center index-blog-header">	
-		<h1 class="inline">Choose Your Memory</h1>
-		<img class="inline rose" src="/img/rose.png">
-		<hr>
+		<h1>Choose Your Memory</h1>
+		<img class="index-hr" src="img/index-hr.png">
 		<% if(currentUser && currentUser.username === 'Cloudie'){ %>	
 		<a class="btn btn-outline-success btn-sm" href="/blogs/new">Add New Memory</a>
 		<% } %>
 	</div>		
 	<div class="row">		
 		<% blogs.forEach(function(blog){ %>
+
 		<div class="col-md-3 col-12">
 			<div class="img-thumbnail index-thumbnail">	
 				<div class="blog-header">
@@ -25,7 +28,7 @@
 				</div>
 				<img class="img-fluid" src="<%= blog.image %>">
 				<div class="caption">
-					<p><%= blog.title %></p>
+					<p><%= blog.title.substr(0, 15)%>...</p>
 					<p><%= blog.description.substr(0, 20) %>...</p>
 					
 					<div class="text-center">
@@ -33,7 +36,8 @@
 						<a class="btn btn-outline-primary" href="/blogs/<%= blog._id %>">Choose</a>
 					</div>
 				</div>
-			</div>			
+			</div>
+			<img class="index-bg" src="img/indexbg.png">		
 		</div>		
 		<% }) %>
 	</div>	
@@ -84,7 +88,8 @@
 			    <% } %>
 			</div>
 	</div>
-</nav>	
+</nav>
+
 </div>
 
 
