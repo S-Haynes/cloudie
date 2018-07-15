@@ -22,7 +22,11 @@ const indexRoutes 	 = require('./routes/index');
 	  commentRoutes  = require('./routes/comments');
 
 //connect to mongoose database
-mongoose.connect('mongodb://<shaynes>:<cloudie123>@ds137651.mlab.com:37651/cloudie', {useNewUrlParser: true});
+mongoose.connect('mongodb://shaynes:shaynes123@ds137631.mlab.com:37631/cloudie', {useNewUrlParser: true});
+
+mongoose.connection.on('error', (err) => {
+	console.log(err)
+})
 
 // app config
 app.set('view engine', 'ejs');
