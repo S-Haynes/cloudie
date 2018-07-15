@@ -22,7 +22,8 @@ const indexRoutes 	 = require('./routes/index');
 	  commentRoutes  = require('./routes/comments');
 
 //connect to mongoose database
-mongoose.connect('mongodb://shaynes:shaynes123@ds137631.mlab.com:37631/cloudie', {useNewUrlParser: true});
+let url = process.env.DATABASEURL || 'mongodb://localhost:27017/jenandcloud';
+mongoose.connect(url, {useNewUrlParser: true});
 
 mongoose.connection.on('error', (err) => {
 	console.log(err)
