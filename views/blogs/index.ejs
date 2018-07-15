@@ -5,7 +5,7 @@
 		<h1 class="inline">Choose Your Memory</h1>
 		<img class="inline rose" src="/img/rose.png">
 		<hr>
-		<% if(currentUser && currentUser.username === 'Jen'){ %>	
+		<% if(currentUser && currentUser.username === 'Cloudie'){ %>	
 		<a class="btn btn-outline-success btn-sm" href="/blogs/new">Add New Memory</a>
 		<% } %>
 	</div>		
@@ -15,7 +15,7 @@
 			<div class="img-thumbnail index-thumbnail">	
 				<div class="blog-header">
 					<p class="inline date"><%= blog.created.toDateString() %></p>
-					<% if(currentUser && currentUser.username === 'Jen'){ %>
+					<% if(currentUser && currentUser.username === 'Cloudie'){ %>
 					<form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST" class="float-right inline">
 						<button class="btn-danger">X</button>
 					</form>
