@@ -75,6 +75,6 @@ app.use('/blogs/:id/comments', commentRoutes);
 // 	})
 // }
 //port to listen for server startup
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log('server started');
 });
